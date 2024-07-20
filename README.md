@@ -79,4 +79,5 @@ The frontend interface is a simple HTML page with a text area for user input and
 - **main.go**: The Go application that handles API requests and responses.
    
 # Demo result
-![Uploading Screenshot from 2024-07-20 22-57-20.png…]()
+
+![Screenshot from 2024-07-20 22-57-20](https://github.com/user-attachments/assets/30b68600-c34c-4544-a682-d770fa8442ef)
