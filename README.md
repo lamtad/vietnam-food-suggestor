@@ -51,5 +51,31 @@ The purpose of this project is to help tourists find Vietnamese food recommendat
 
 #The application will start on http://localhost:8888.
 
+# API Endpoints
 
+## POST /chat
+
+- **Description**: Accepts user input, processes it to find relevant Vietnamese food items, and returns nearby places.
+
+- **Request Body**:
+
+```json
+   {
+     "question": "Your query here"
+   }
+```
+- **Response**:
+
+```json
+Copy code
+{
+  "response": "List of places or 'No places found'"
+}
+```
+# Frontend
+The frontend interface is a simple HTML page with a text area for user input and a submit button to send requests to the API.
+
+# File Structure
+- **index.html**: The HTML interface for user interaction.
+- **main.go**: The Go application that handles API requests and responses.
    
