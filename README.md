@@ -78,3 +78,5 @@ The frontend interface is a simple HTML page with a text area for user input and
 - **index.html**: The HTML interface for user interaction.
 - **main.go**: The Go application that handles API requests and responses.
    
+# Demo result
+![Uploading Screenshot from 2024-07-20 22-57-20.png…]()
