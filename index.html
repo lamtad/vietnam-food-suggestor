@@ -3,52 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Interface</title>
+    <title>Place Finder</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #responseBox {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            overflow-y: scroll;
-        }
-        #questionBox {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-        }
-        #submitBtn {
-            margin-top: 10px;
+        #results {
+            white-space: pre-wrap; /* Preserve whitespace and newlines */
         }
     </style>
 </head>
 <body>
-    <div id="responseBox"></div>
-    <textarea id="questionBox" placeholder="Enter your question here..."></textarea>
-    <button id="submitBtn">Submit</button>
+    <h1>Place Finder</h1>
+    <form id="queryForm">
+        <input type="text" id="question" name="question" placeholder="Enter your query" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
 
     <script>
-        document.getElementById('submitBtn').addEventListener('click', function() {
-            const question = document.getElementById('questionBox').value;
+        document.getElementById('queryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const question = document.getElementById('question').value;
+
             fetch('/chat', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ question: question }),
+                body: JSON.stringify({ question: question })
             })
             .then(response => response.json())
             .then(data => {
-                const responseBox = document.getElementById('responseBox');
-                responseBox.innerHTML += `<div><strong>Question:</strong> ${question}</div>`;
-                responseBox.innerHTML += `<div><strong>Response:</strong> ${data.response}</div>`;
-                responseBox.scrollTop = responseBox.scrollHeight;
-                document.getElementById('questionBox').value = '';
+                document.getElementById('results').textContent = data.response || 'No results found';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('results').textContent = 'An error occurred';
             });
         });
     </script>
