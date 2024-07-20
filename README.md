@@ -34,9 +34,11 @@ The purpose of this project is to help tourists find Vietnamese food recommendat
    cd project
 2. **Create a .env file in the root directory with the following content**
 
-OPENAI_API_KEY=your_openai_api_key
-GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+   ```bash
+   OPENAI_API_KEY=your_openai_api_key
+   GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 
+ 
 3. **Install Dependencies**
 
    ```bash
