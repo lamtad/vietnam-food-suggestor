@@ -67,7 +67,6 @@ The purpose of this project is to help tourists find Vietnamese food recommendat
 - **Response**:
 
 ```json
-Copy code
 {
   "response": "List of places or 'No places found'"
 }
